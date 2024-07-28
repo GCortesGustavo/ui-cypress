@@ -9,7 +9,7 @@ describe('Tipos de localizadores', () => {
         cy.get('input');
     })
 
-    it('Obteniendo por un atributo', () => {
+    it('Obteniendo por un atributos', () => {
         cy.visit('/automation-practice-form')
         cy.get('[placeholder="First Name"]')
     });
