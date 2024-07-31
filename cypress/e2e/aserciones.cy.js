@@ -8,8 +8,17 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 
 describe("Asersiones", () => {
 
+	//Antes de cada prueba
+	beforeEach(() => {
+		cy.visit("/automation-practice-form")
+	})
+
+	after(() => {
+		cy.visit("/")
+	})
+
     it("Asersion", () => {
-        cy.visit("/automation-practice-form")
+        //cy.visit("/automation-practice-form")
         
         //Le pregunta a la url si incluye el contenido
         cy.url().should("include", "demoqa.com")
@@ -22,7 +31,7 @@ describe("Asersiones", () => {
     })
 
     it('Assert 2', () => {
-		cy.visit('/automation-practice-form')
+		//cy.visit('/automation-practice-form')
 		cy.url().should('include', 'demoqa.com')
 		cy.get('#firstName').then((element) => {
 			expect(element).to.be.visible
@@ -31,7 +40,7 @@ describe("Asersiones", () => {
 	})
 
 	it('Assert 3', () => {
-		cy.visit('/automation-practice-form')
+		//cy.visit('/automation-practice-form')
 		cy.url().should('include', 'demoqa.com')
 		cy.get('#firstName').then((element) => {
 			assert(element.attr('placeholder', 'Firts Name'))
