@@ -48,4 +48,30 @@ describe("Interactuar con Inputs", () => {
         cy.get('#firstName').type(this.GlobalVariable)
     })
 
+
+    it.only('Interactuando con los dropdowns', function() {
+        cy.visit('https://ultimateqa.com/simple-html-elements-for-automation/')
+
+        // Cuenta desde indice 0
+        // en selects puedes seleccionar por indice, value o texto
+        cy.get('select').select(2)
+
+        cy.get('select').select('opel').should('have.value', 'opel')
+
+        cy.get('select').select('Opel').should('have.value', 'opel')
+    })
+
+    // it.only('Interactuando con los dropdowns dinamicos', function() {
+    //     cy.visit('https://react-select.com/home/')
+    //     cy.get('#react-select-6-input').click()
+
+    //     cy.get('#react-select-6-listbox').children().children().each(($el, index, $list)=> {
+    //         if($el.text() === 'Red') {
+    //             cy.wrap($el).click()
+    //         }
+    //     })
+        
+    // })
+
+    
 });
